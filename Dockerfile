@@ -19,7 +19,7 @@ RUN apk add --no-cache tini && \
 COPY ./requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 COPY ./ /app/
-RUN apk del build-dependencies
+RUN apk del build-deps
 
 ENV SOME_ENV_USED_DURING_RUNTIME=hellodocker
 

@@ -1,51 +1,48 @@
-SHELL := /bin/bash
-CWD := $(shell readlink -en $(dir $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))))
-IMAGE := "jamrizzi/green-docker:latest"
+CWD := $(shell pwd)
+TAG := stable
+IMAGE := "jamrizzi/green-docker:$(TAG)"
 SOME_CONTAINER := $(shell echo some-$(IMAGE) | sed 's/[^a-zA-Z0-9]//g')
-DOCKERFILE := $(CWD)/Dockerfile
+DOCKERFILE := $(CWD)/$(TAG)/Dockerfile
 
 .PHONY: all
-all: clean fetch_dependancies build
+all: clean deps build
 
 .PHONY: build
 build:
-	docker build -t $(IMAGE) -f $(DOCKERFILE) $(CWD)
-	$(info built $(IMAGE))
+	@docker build -t $(IMAGE) -f $(DOCKERFILE) $(CWD)
+	@echo ::: BUILD :::
 
 .PHONY: pull
 pull:
-	docker pull $(IMAGE)
-	$(info pulled $(IMAGE))
+	@docker pull $(IMAGE)
+	@echo ::: PULL :::
 
 .PHONY: push
 push:
-	docker push $(IMAGE)
-	$(info pushed $(IMAGE))
+	@docker push $(IMAGE)
+	@echo ::: PUSH :::
 
 .PHONY: run
 run:
-	docker run --name $(SOME_CONTAINER) --rm $(IMAGE)
-	$(info ran $(IMAGE))
+	@docker run --name run$(SOME_CONTAINER) --rm $(IMAGE)
 
 .PHONY: ssh
 ssh:
-	dockssh $(IMAGE)
+	@docker run --name ssh$(SOME_CONTAINER) --rm -it --entrypoint /bin/sh $(IMAGE)
 
 .PHONY: essh
 essh:
-	dockssh -e $(SOME_CONTAINER)
+	@docker exec run$(SOME_CONTAINER) /bin/sh
 
 .PHONY: clean
 clean:
-	# rm -rf ./stuff/to/clean
-	$(info cleaned)
+	-@ rm -rf ./stuff/to/clean &>/dev/null || true
+	@echo ::: CLEAN :::
 
-.PHONY: fetch_dependancies
-fetch_dependancies: docker
-	$(info fetched dependancies)
+.PHONY: deps
+deps: docker
+	@echo ::: DEPS :::
 .PHONY: docker
 docker:
-ifeq ($(shell whereis docker), $(shell echo docker:))
-	curl -L https://get.docker.com/ | bash
-endif
-	$(info fetched docker)
+	@if ! o=$$(which docker); then curl -L https://get.docker.com | bash; fi
+	@echo ::: DOCKER :::

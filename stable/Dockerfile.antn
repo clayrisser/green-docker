@@ -1,4 +1,8 @@
 #--------
+# The FROM instruction initializes a new build stage and sets the Base Image for subsequent instructions.
+FROM alpine:3.7
+
+#--------
 # The LABEL instruction adds metadata to an image
 # The 'image' LABEL describes the image this Dockerfile will build
 LABEL image=jamrizzi/erpnext:stable \
@@ -12,16 +16,20 @@ LABEL image=jamrizzi/erpnext:stable \
 # LABEL called 'alpine:3.7'
       base=alpine:3.7
 
-#--------
-# The FROM instruction initializes a new build stage and sets the Base Image for subsequent instructions.
-FROM alpine:3.7
-
-MAINTAINER Jam Risser <jam@jamrizzi.com>
-
 RUN apk add --no-cache \
         py-pip && \
     apk add --no-cache --virtual build-deps \
         git
+
+COPY ./requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+COPY ./ /app/
+RUN apk del build-deps
+
+ENV HELLO=world \
+    HOWDY=texas
+
+ENTRYPOINT ["/sbin/tini", "--", "python", "/app/server.py"]
 
 
 

@@ -1,6 +1,6 @@
 # Green Docker
 
-A super efficient and optimized way to build containers using Docker best practices
+Make the most efficient Docker image using best practices
 
 Cut back on greenhouse emissions by writing good code
 
@@ -8,7 +8,6 @@ Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
 
 
 ## Features
-<!------------------------------------------------------->
 
 * Pass SIGINT signal
 * Package management
@@ -16,48 +15,29 @@ Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
 * Maximum cached layers
 
 
-## Installation
-<!------------------------------------------------------->
-
-```sh
-cd /your/awesome/project
-curl -OL https://raw.githubusercontent.com/jamrizzi/super-efficient-docker/master/Dockerfile
-```
-
-
 ## Dependencies
-<!------------------------------------------------------->
 
 [Docker](https://docker.com)
 
 
-## Usage
-<!------------------------------------------------------->
-
-Scroll up and down until you're hypnotized
-
-
 ## Support
-<!------------------------------------------------------->
 
 Submit an [issue](https://github.com/jamrizzi/readme/issues/new)
 
+
 ## Screenshots
-<!------------------------------------------------------->
 
 ![Screenshot 1](https://drive.google.com/uc?export=view&id=1eA3WplGAimutL1IwMylxd_5JAqnhXy3Txw)
 
 
 ## Buy Me Coffee
-<!------------------------------------------------------->
 
 A ridiculous amount of coffee was consumed in the process of building this project.
 
-[Add some fuel](https://jamrizzi.com/#!/buy-me-coffee) if you'd like to keep me going!
+[Add some fuel](https://coffee.jamrizzi.com) if you'd like to keep me going!
 
 
 ## Contributing
-<!------------------------------------------------------->
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
@@ -67,7 +47,6 @@ A ridiculous amount of coffee was consumed in the process of building this proje
 
 
 ## License
-<!------------------------------------------------------->
 
 [MIT License](https://github.com/jamrizzi/readme/blob/master/LICENSE)
 
@@ -75,13 +54,12 @@ A ridiculous amount of coffee was consumed in the process of building this proje
 
 
 ## Credits
-<!------------------------------------------------------->
 
 * [Jam Risser](https://jamrizzi.com) - Author
+* [Docker](https://docs.docker.com/engine/reference/builder)
 
 
 ## Changelog
-<!------------------------------------------------------->
 
 0.0.1 (2017-04-28)
 * Initial release

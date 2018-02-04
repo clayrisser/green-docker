@@ -32,13 +32,6 @@ Submit an [issue](https://github.com/jamrizzi/readme/issues/new)
 ![Screenshot 1](https://drive.google.com/uc?export=view&id=1eA3WplGAimutL1IwMylxd_5JAqnhXy3Txw)
 
 
-## Buy Me Coffee
-
-A ridiculous amount of coffee was consumed in the process of building this project.
-
-[Add some fuel](https://coffee.jamrizzi.com) if you'd like to keep me going!
-
-
 ## Contributing
 
 1. Fork it!
@@ -66,7 +59,10 @@ A ridiculous amount of coffee was consumed in the process of building this proje
 0.0.1 (2017-04-28)
 * Initial release
 
-## Support on Beerpay
-Hey dude! Help me out for a couple of :beers:!
+## Support on Beerpay (actually, I drink coffee)
+
+A ridiculous amount of coffee :coffee: :coffee: :coffee: was consumed in the process of building this project.
+
+[Add some fuel](https://beerpay.io/jamrizzi/green-docker) if you'd like to keep me going!
 
 [![Beerpay](https://beerpay.io/jamrizzi/green-docker/badge.svg?style=beer-square)](https://beerpay.io/jamrizzi/green-docker)  [![Beerpay](https://beerpay.io/jamrizzi/green-docker/make-wish.svg?style=flat-square)](https://beerpay.io/jamrizzi/green-docker?focus=wish)

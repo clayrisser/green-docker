@@ -65,3 +65,8 @@ A ridiculous amount of coffee was consumed in the process of building this proje
 
 0.0.1 (2017-04-28)
 * Initial release
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/jamrizzi/green-docker/badge.svg?style=beer-square)](https://beerpay.io/jamrizzi/green-docker)  [![Beerpay](https://beerpay.io/jamrizzi/green-docker/make-wish.svg?style=flat-square)](https://beerpay.io/jamrizzi/green-docker?focus=wish)

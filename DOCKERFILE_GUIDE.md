@@ -28,3 +28,4 @@ Since layers are cached, the build can reuse them when nothing has changed in th
 Cleaning up your build dependencies helps ensure your image is as small as possible.
 
 ### Catch **SIGINT** signal
+Use a program link tini or supervisord to catch the SIGINT signal. Otherwise, your docker container will not shutdown on `CTRL-C`, which can be frustrating to users.

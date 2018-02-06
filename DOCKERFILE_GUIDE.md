@@ -13,6 +13,7 @@ Use a minimal base when possible. [Busybox](https://hub.docker.com/_/busybox/) i
 Official images help prevent unexpected bugs because a professional team of developers continually maintains them.
 
 ### Use versioned tags for the base
+Versioned tags also help prevent bugs. A base that is not versioned may change without you knowing, and could break the Docker image.
 
 ### Stick to Linux conventions
 

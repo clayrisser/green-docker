@@ -16,6 +16,7 @@ Official images help prevent unexpected bugs because a professional team of deve
 Versioned tags also help prevent bugs. A base that is not versioned may change without you knowing, and could break the Docker image.
 
 ### Stick to Linux conventions
+Docker images are a containerized system that shares the Linux kernel with the host machine. Because a Docker image is essentially a Linux system, it is advised to use Linux conventions when possible. Put binaries in `/usr/local/bin`. Put scripts in `/usr/local/sbin`. Put source code in `/usr/local/src`. Put applications in `/opt`. Usually, I place my main app in `/opt/app`, but some people might prefer to put it in `/usr/local/src/app`. Just use your best judgment.
 
 ### Chain instructions
 

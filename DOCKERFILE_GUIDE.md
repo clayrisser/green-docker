@@ -19,6 +19,7 @@ Versioned tags also help prevent bugs. A base that is not versioned may change w
 Docker images are a containerized system that shares the Linux kernel with the host machine. Because a Docker image is essentially a Linux system, it is advised to use Linux conventions when possible. Put binaries in `/usr/local/bin`. Put scripts in `/usr/local/sbin`. Put source code in `/usr/local/src`. Put applications in `/opt`. Usually, I place my main app in `/opt/app`, but some people might prefer to put it in `/usr/local/src/app`. Just use your best judgment.
 
 ### Chain instructions
+Each docker instruction creates a new layer. In order to minimize the number of layers, it’s best to chain your commands using `&&`. You can use `\` to continue an instruction onto another line.
 
 ### Install dependancies before copying application
 

@@ -22,6 +22,7 @@ Docker images are a containerized system that shares the Linux kernel with the h
 Each docker instruction creates a new layer. In order to minimize the number of layers, it’s best to chain your commands using `&&`. You can use `\` to continue an instruction onto another line.
 
 ### Install dependancies before copying application
+Since layers are cached, the build can reuse them when nothing has changed in the current and previous layers. Because of this, copy your dependency list over first, such as your `package.json` or `requirements.txt`. Next, install your dependencies. Then copy the rest of the application. When you make a change in your app, it will pull the cached layer that installed your dependencies instead of reinstalling the same dependencies all over again.
 
 ### Clean up build dependancies
 

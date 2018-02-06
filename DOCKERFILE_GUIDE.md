@@ -29,3 +29,6 @@ Cleaning up your build dependencies helps ensure your image is as small as possi
 
 ### Catch **SIGINT** signal
 Use a program link tini or supervisord to catch the SIGINT signal. Otherwise, your docker container will not shutdown on `CTRL-C`, which can be frustrating to users.
+
+### Use ENTRYPOINT and CMD correctly
+Use ENTRYPOINT for running your main program, and CMD to pass the default arguments. This practice ensures the user can override the arguments without the user needing to know how to run the program.

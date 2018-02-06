@@ -10,6 +10,7 @@ showed me ropes.
 Use a minimal base when possible. [Busybox](https://hub.docker.com/_/busybox/) is the most minimal base, but it lacks package management. I recommend using [Alpine](https://hub.docker.com/_/alpine/) because it is the most minimal that supports package management.
 
 ### Use official images for the base
+Official images help prevent unexpected bugs because a professional team of developers continually maintains them.
 
 ### Use versioned tags for the base
 

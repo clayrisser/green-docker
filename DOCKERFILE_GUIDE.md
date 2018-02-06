@@ -25,5 +25,6 @@ Each docker instruction creates a new layer. In order to minimize the number of 
 Since layers are cached, the build can reuse them when nothing has changed in the current and previous layers. Because of this, copy your dependency list over first, such as your `package.json` or `requirements.txt`. Next, install your dependencies. Then copy the rest of the application. When you make a change in your app, it will pull the cached layer that installed your dependencies instead of reinstalling the same dependencies all over again.
 
 ### Clean up build dependancies
+Cleaning up your build dependencies helps ensure your image is as small as possible.
 
 ### Catch **SIGINT** signal

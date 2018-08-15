@@ -1,11 +1,12 @@
 CWD := $(shell pwd)
-TAG := stable
-IMAGE := "jamrizzi/green-docker:$(TAG)"
+TAG := python
+PORT := 5000
+IMAGE := "codejamninja/green-docker:$(TAG)"
 SOME_CONTAINER := $(shell echo some-$(IMAGE) | sed 's/[^a-zA-Z0-9]//g')
 DOCKERFILE := $(CWD)/$(TAG)/Dockerfile
 
 .PHONY: all
-all: clean deps build
+all: clean build
 
 .PHONY: build
 build:
@@ -24,7 +25,7 @@ push:
 
 .PHONY: run
 run:
-	@docker run --name run$(SOME_CONTAINER) --rm $(IMAGE)
+	@docker run --name run$(SOME_CONTAINER) -p $(PORT):$(PORT) --rm $(IMAGE)
 
 .PHONY: ssh
 ssh:
@@ -38,11 +39,3 @@ essh:
 clean:
 	-@ rm -rf ./stuff/to/clean &>/dev/null || true
 	@echo ::: CLEAN :::
-
-.PHONY: deps
-deps: docker
-	@echo ::: DEPS :::
-.PHONY: docker
-docker:
-	@if ! o=$$(which docker); then curl -L https://get.docker.com | bash; fi
-	@echo ::: DOCKER :::

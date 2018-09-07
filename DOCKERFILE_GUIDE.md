@@ -38,7 +38,7 @@ installed your dependencies instead of reinstalling the same dependencies all ov
 Cleaning up your build dependencies helps ensure your image is as small as possible.
 
 ### Catch **SIGINT** signal
-Use a program link tini or supervisord to catch the SIGINT signal. Otherwise, your docker container will not shutdown on 
+Use a program like tini or supervisord to catch the SIGINT signal. Otherwise, your docker container will not shutdown on 
 `CTRL-C`, which can be frustrating to users.
 
 ### Use ENTRYPOINT and CMD correctly

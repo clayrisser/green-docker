@@ -5,8 +5,8 @@ LABEL image=codejamninja/green-docker:nodejs \
       base=alpine:3.6
 
 RUN apk add --no-cache \
-        tini && \
-    apk add --no-cache --virtual build-deps \
+        tini
+RUN apk add --no-cache --virtual build-deps \
         build-base
 
 WORKDIR /tmp/app

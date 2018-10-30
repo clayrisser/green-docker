@@ -11,10 +11,10 @@ RUN apk add --no-cache --virtual build-deps \
 
 WORKDIR /tmp/app
 
-COPY /app/package*.json ./
-RUN npm install
+COPY /app/package.json ./
+RUN yarn
 COPY /app ./
-RUN npm run build && \
+RUN yarn build && \
     mv /tmp/app /opt/app && \
     apk del build-deps
 

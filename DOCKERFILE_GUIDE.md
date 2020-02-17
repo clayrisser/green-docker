@@ -44,3 +44,8 @@ Use a program like tini or supervisord to catch the SIGINT signal. Otherwise, yo
 ### Use ENTRYPOINT and CMD correctly
 Use ENTRYPOINT for running your main program, and CMD to pass the default arguments. This practice ensures the user can 
 override the arguments without the user needing to know how to run the program.
+
+### Use Multistage Builds
+Multistage builds allow you to build in a build image and copy only what you need to a production image. This
+keeps build dependencies from the production image. For example, a frontend static website only needs the
+transpiled bundle, not the source code or `node_modules`.

@@ -1,5 +1,7 @@
 # Green Docker
 
+![](assets/green-docker.png)
+
 Make the most efficient Docker image using best practices
 
 Cut back on greenhouse emissions by writing good code

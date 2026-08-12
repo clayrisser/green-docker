@@ -1,0 +1,8 @@
+.make/
+.env
+.env.bak
+.dockerignore
+**/node_modules/
+**/.venv/
+**/__pycache__/
+*.log

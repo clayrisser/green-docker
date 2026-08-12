@@ -1,0 +1,16 @@
+{
+    "name": "green-docker-nodejs",
+    "version": "0.1.0",
+    "description": "Make the most efficient Docker image using best practices",
+    "license": "MIT",
+    "author": "Clay Risser <clayrisser@gmail.com>",
+    "type": "module",
+    "private": true,
+    "packageManager": "pnpm@10.14.0",
+    "scripts": {
+        "start": "node src/app.js"
+    },
+    "dependencies": {
+        "express": "^5.1.0"
+    }
+}

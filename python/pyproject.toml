@@ -1,0 +1,8 @@
+[project]
+name = "green-docker-python"
+version = "0.1.0"
+description = "Make the most efficient Docker image using best practices"
+license = "MIT"
+authors = [{ name = "Clay Risser", email = "clayrisser@gmail.com" }]
+requires-python = ">=3.13"
+dependencies = ["flask>=3.1"]

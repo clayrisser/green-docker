@@ -6,35 +6,62 @@ Make the most efficient Docker image using best practices
 
 Cut back on greenhouse emissions by writing good code
 
-Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
-
 Start by reading the [Dockerfile Guide](DOCKERFILE_GUIDE.md)
 
 [Watch the Video](https://www.youtube.com/watch?v=2-wR_balsH0&t=525s)
 
-
 ## Features
 
-* Pass SIGINT signal
-* Package management
-* Tiny base using Alpine
-* Maximum cached layers
+* Multi-stage builds — only the runtime artifacts ship
+* Tiny pinned base images (Alpine)
+* Maximum layer caching (dependency manifests copied first, BuildKit cache mounts)
+* Proper signal handling (tini as PID 1, graceful shutdown)
+* Non-root runtime user
+* `docker buildx bake` builds with a single bake file for every image
+* Size-budget smoke tests (bats) that fail the build if an image bloats
 
+## Layout
+
+```
+docker/
+├── docker-bake.hcl      # all images, tags, and platforms in one place
+├── Makefile             # make bake / make bake/<image>
+├── nodejs/Dockerfile    # Node.js 22 + pnpm multi-stage example
+└── python/Dockerfile    # Python 3.13 + uv multi-stage example
+nodejs/                  # sample Express app
+python/                  # sample Flask app
+tests/                   # bats smoke tests (image size budget + HTTP)
+```
 
 ## Dependencies
 
-[Docker](https://docker.com)
+* [Docker](https://docker.com) with BuildKit (buildx)
+* [asdf](https://asdf-vm.com) for the dev toolchain (`bats`, `shfmt`)
 
+## Usage
+
+```sh
+make prepare    # one-time toolchain setup (asdf install)
+make build      # build all images via buildx bake
+make test/e2e   # build + assert image size budgets + HTTP smoke test
+```
+
+Build a single image:
+
+```sh
+make docker/bake/nodejs
+make docker/bake/python
+```
+
+Push multi-arch (linux/amd64 + linux/arm64) images to the registry:
+
+```sh
+make build BAKE_OUTPUT=registry
+```
 
 ## Support
 
-Submit an [issue](https://github.com/jamrizzi/readme/issues/new)
-
-
-## Screenshots
-
-![Screenshot 1](https://drive.google.com/uc?export=view&id=1eA3WplGAimutL1IwMylxd_5JAqnhXy3Txw)
-
+Submit an [issue](https://gitlab.com/bitspur/rock8s/green-docker/-/issues/new)
 
 ## Contributing
 
@@ -42,31 +69,15 @@ Submit an [issue](https://github.com/jamrizzi/readme/issues/new)
 2. Create your feature branch: `git checkout -b my-new-feature`
 3. Commit your changes: `git commit -m 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
-
+5. Submit a merge request :D
 
 ## License
 
-[MIT License](https://github.com/jamrizzi/readme/blob/master/LICENSE)
+[MIT License](LICENSE)
 
-[Jam Risser](https://jamrizzi.com) &copy; 2017
-
+[Clay Risser](https://clayrisser.com) &copy; 2017-2026
 
 ## Credits
 
-* [Jam Risser](https://jamrizzi.com) - Author
-* [Docker](https://docs.docker.com/engine/reference/builder)
-
-
-## Changelog
-
-0.0.1 (2017-04-28)
-* Initial release
-
-## Support on Beerpay (actually, I drink coffee)
-
-A ridiculous amount of coffee :coffee: :coffee: :coffee: was consumed in the process of building this project.
-
-[Add some fuel](https://beerpay.io/jamrizzi/green-docker) if you'd like to keep me going!
-
-[![Beerpay](https://beerpay.io/jamrizzi/green-docker/badge.svg?style=beer-square)](https://beerpay.io/jamrizzi/green-docker)  [![Beerpay](https://beerpay.io/jamrizzi/green-docker/make-wish.svg?style=flat-square)](https://beerpay.io/jamrizzi/green-docker?focus=wish)
+* [Clay Risser](https://clayrisser.com) - Author
+* [Docker](https://docs.docker.com/reference/dockerfile)
